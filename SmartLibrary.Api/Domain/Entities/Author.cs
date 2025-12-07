@@ -2,7 +2,7 @@
 {
     public class Author : BaseEntity
     {
-        public string Name { get; private set; }
+        public string Name { get; set; }
         private Author() { }
         public Author(string name) => Name = name;
     }

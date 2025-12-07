@@ -4,13 +4,18 @@ using SmartLibrary.Api.Domain.Repositories;
 
 namespace SmartLibrary.Api.Application.Commands.AddBook
 {
-    public record AddBookCommand(string Title, Guid AuthorId, int Copies, decimal DailyFine) : IRequest<Guid>;
+    public record AddBookCommand(
+        string Title,
+        Guid AuthorId,
+        int Copies,
+        decimal DailyFine
+        ) : IRequest<Guid>;
 
 
     public class AddBookHandler : IRequestHandler<AddBookCommand, Guid>
     {
-        private readonly IBookRepository _repo;
-        public AddBookHandler(IBookRepository repo) => _repo = repo;
+        private readonly IRepository<Book> _repo;
+        public AddBookHandler(IRepository<Book> repo) => _repo = repo;
 
 
         public async Task<Guid> Handle(AddBookCommand request, CancellationToken ct)

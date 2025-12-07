@@ -20,7 +20,12 @@
             DailyFine = dailyFine;
         }
 
-
+        public void Update(string title, string author, int copies)
+        {
+            Title = title;
+            Author.Name = author;
+            CopiesAvailable = copies;
+        }
         public void Borrow()
         {
             if (CopiesAvailable <= 0) throw new InvalidOperationException("No copies available");
