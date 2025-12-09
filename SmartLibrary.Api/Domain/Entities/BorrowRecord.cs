@@ -8,6 +8,7 @@
         public DateTime BorrowedAt { get; private set; }
         public DateTime? ReturnedAt { get; private set; }
         public decimal FinePaid { get; private set; }
+        public Book Book { get; private set; }
 
         private BorrowRecord() { }
 

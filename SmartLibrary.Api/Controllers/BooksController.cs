@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SmartLibrary.Api.Application.Commands.AddBook;
 using SmartLibrary.Api.Application.Commands.BorrowBook;
 using SmartLibrary.Api.Application.Queries.GetAllBooks;
+using SmartLibrary.Api.Application.Queries.GetBooks;
 
 namespace SmartLibrary.Api.Controllers
 {
@@ -58,11 +59,11 @@ namespace SmartLibrary.Api.Controllers
         }
 
 
-        [HttpPost("{id}/return")]
+        [HttpPost("return")]
         public async Task<IActionResult> Return(ReturnBookCommand cmd)
         {
-            await _mediator.Send(cmd);
-            return NoContent();
+            var x = await _mediator.Send(cmd);
+            return Ok(x);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using SmartLibrary.Api.Application.DTOs;
+using SmartLibrary.Api.Application.Specs;
 using SmartLibrary.Api.Domain.Entities;
 using SmartLibrary.Api.Domain.Repositories;
 
@@ -18,13 +19,14 @@ namespace SmartLibrary.Api.Application.Queries.GetAllBooks
 
         public async Task<BookDto> Handle(GetBookByIdQuery request, CancellationToken ct)
         {
-            var book = await _repo.GetByIdAsync(request.Id);
+            var book = await _repo.GetByIdAsync(new GetByIdSpec(request.Id));
             if (book == null) return null;
 
             return new BookDto
             {
                 Id = book.Id,
                 Title = book.Title,
+                AuthorName = book.Author.Name,
                 CopiesAvailable = book.CopiesAvailable
             };
         }

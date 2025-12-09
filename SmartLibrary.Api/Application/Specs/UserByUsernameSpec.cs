@@ -7,7 +7,8 @@ namespace SmartLibrary.Api.Application.Specs
     {
         public UserByUsernameSpec(string username)
         {
-            Query.Where(x => x.Username == username);
+            var n = (username ?? string.Empty).Trim();
+            Query.Where(u => u.Username == n);
         }
     }
 

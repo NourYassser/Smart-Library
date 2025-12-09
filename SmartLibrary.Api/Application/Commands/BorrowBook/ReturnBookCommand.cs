@@ -5,8 +5,7 @@ using SmartLibrary.Api.Domain.Repositories;
 
 namespace SmartLibrary.Api.Application.Commands.BorrowBook
 {
-    public record ReturnBookCommand(Guid BorrowRecordId, string UserName, string Pin, decimal Fine, int DaysLate)
-        : IRequest<bool>;
+    public record ReturnBookCommand(Guid BorrowRecordId, string UserName, string Pin) : IRequest<bool>;
 
     public class ReturnBookHandler : IRequestHandler<ReturnBookCommand, bool>
     {
@@ -27,34 +26,30 @@ namespace SmartLibrary.Api.Application.Commands.BorrowBook
         public async Task<bool> Handle(ReturnBookCommand request, CancellationToken cancellationToken)
         {
             var user = await _userRepo.FirstOrDefaultAsync(
-                new UserByCredentialsSpec(request.UserName, request.Pin),
+                new UserByUsernameSpec(request.UserName),
                 cancellationToken
             );
 
-            if (user is null)
-                return false;
+            if (user is null) return false;
+            if (!user.VerifyPin(request.Pin)) return false;
 
             var record = await _borrowRepo.GetByIdAsync(request.BorrowRecordId);
-            if (record is null)
-                return false;
-
-            if (record.ReturnedAt != null)
-                return false;
-
-            if (record.UserId != user.Id)
-                return false;
-
-            record.Return(request.Fine);
-            await _borrowRepo.UpdateAsync(record, cancellationToken);
+            if (record is null) return false;
+            if (record.ReturnedAt != null) return false;
+            if (record.UserId != user.Id) return false;
 
             var book = await _bookRepo.GetByIdAsync(record.BookId);
-            if (book is null)
-                return false;
-            int daysLate = request.DaysLate;
+            if (book is null) return false;
+
+            var defaultLoanDays = 14;
+
+            var elapsedDays = (int)Math.Floor((DateTime.UtcNow - record.BorrowedAt).TotalDays);
+            var daysLate = Math.Max(0, elapsedDays - defaultLoanDays);
+
             decimal fine = daysLate * book.DailyFine;
 
             book.Return(daysLate);
-            record.Return(fine);
+            record.Return(book.DailyFine + fine);
 
             await _bookRepo.UpdateAsync(book, cancellationToken);
             await _borrowRepo.UpdateAsync(record, cancellationToken);

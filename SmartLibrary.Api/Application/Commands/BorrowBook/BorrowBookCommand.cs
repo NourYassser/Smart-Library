@@ -32,25 +32,39 @@ namespace SmartLibrary.Api.Application.Commands.BorrowBook
         public async Task<Guid> Handle(BorrowBookCommand request, CancellationToken cancellationToken)
         {
             var user = await _userRepo.FirstOrDefaultAsync(
-            new UserByCredentialsSpec(request.Username, request.Pin),
+            new UserByUsernameSpec(request.Username),
             cancellationToken
         );
 
             if (user is null)
                 throw new Exception("Invalid username or pin");
 
+            if (!user.VerifyPin(request.Pin))
+                throw new UnauthorizedAccessException("Invalid username or pin.");
+
             var book = await _bookRepo.GetByIdAsync(request.BookId);
             if (book is null)
                 throw new Exception("Book not found");
 
-            book.Borrow();
+            var existing = await _borrowRepo.FirstOrDefaultAsync(
+                new ActiveBorrowByUserAndBookSpec(user.Id, book.Id),
+                cancellationToken
+            );
 
-            var borrowRecord = new BorrowRecord(book.Id, user.Id);
-            await _borrowRepo.AddAsync(borrowRecord, cancellationToken);
+            if (existing is not null)
+                throw new InvalidOperationException("User already has an active borrow for this book.");
+
+            if (book.CopiesAvailable <= 0) throw new InvalidOperationException("No copies available.");
+
+            book.Borrow();
 
             await _bookRepo.UpdateAsync(book, cancellationToken);
 
-            return borrowRecord.Id;
+            var borrowRecord = new BorrowRecord(book.Id, user.Id);
+
+            var added = await _borrowRepo.AddAsync(borrowRecord, cancellationToken);
+
+            return added.Id;
         }
     }
 

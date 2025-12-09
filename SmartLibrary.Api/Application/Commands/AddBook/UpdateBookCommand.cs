@@ -13,7 +13,10 @@ namespace SmartLibrary.Api.Application.Commands.AddBook
     public class UpdateBookHandler : IRequestHandler<UpdateBookCommand>
     {
         private readonly IRepository<Book> _repo;
-
+        public UpdateBookHandler(IRepository<Book> repo)
+        {
+            _repo = repo;
+        }
         public async Task Handle(UpdateBookCommand request, CancellationToken ct)
         {
             var book = await _repo.GetByIdAsync(request.Id);

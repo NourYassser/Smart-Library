@@ -11,6 +11,7 @@ namespace SmartLibrary.Api.Infrastructure
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Review> Reviews { get; set; }
         public DbSet<BorrowRecord> BorrowRecords { get; set; }
 
 

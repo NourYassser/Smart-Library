@@ -8,7 +8,10 @@ namespace SmartLibrary.Api.Application.Commands.AddBook
     public class DeleteBookHandler : IRequestHandler<DeleteBookCommand>
     {
         private readonly IRepository<Book> _repo;
-
+        public DeleteBookHandler(IRepository<Book> repo)
+        {
+            _repo = repo;
+        }
         public async Task Handle(DeleteBookCommand request, CancellationToken ct)
         {
             var book = await _repo.GetByIdAsync(request.Id);

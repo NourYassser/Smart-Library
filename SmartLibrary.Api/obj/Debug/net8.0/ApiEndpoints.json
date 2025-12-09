@@ -75,27 +75,6 @@
   },
   {
     "ContainingType": "SmartLibrary.Api.Controllers.BooksController",
-    "Method": "Return",
-    "RelativePath": "api/Books/{id}/return",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "cmd",
-        "Type": "SmartLibrary.Api.Application.Commands.BorrowBook.ReturnBookCommand",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SmartLibrary.Api.Controllers.BooksController",
     "Method": "BorrowBook",
     "RelativePath": "api/Books/borrow",
     "HttpMethod": "POST",
@@ -111,9 +90,41 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SmartLibrary.Api.Controllers.BooksController",
+    "Method": "Return",
+    "RelativePath": "api/Books/return",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "SmartLibrary.Api.Application.Commands.BorrowBook.ReturnBookCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartLibrary.Api.Controllers.UsersController",
+    "Method": "Add",
+    "RelativePath": "api/Users/add-author",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "SmartLibrary.Api.Application.Commands.CreateUser.AddAuthorCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SmartLibrary.Api.Controllers.UsersController",
     "Method": "CreateUser",
-    "RelativePath": "api/Users",
+    "RelativePath": "api/Users/add-user",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -121,6 +132,54 @@
       {
         "Name": "cmd",
         "Type": "SmartLibrary.Api.Application.Commands.CreateUser.CreateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartLibrary.Api.Controllers.UsersController",
+    "Method": "GetBooksByAuthor",
+    "RelativePath": "api/Users/author/{authorId}/books",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartLibrary.Api.Controllers.UsersController",
+    "Method": "GetUserOperations",
+    "RelativePath": "api/Users/operations/{username}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartLibrary.Api.Controllers.UsersController",
+    "Method": "CreateReview",
+    "RelativePath": "api/Users/reviews",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "SmartLibrary.Api.Application.Commands.Ratings.CreateReviewCommand",
         "IsRequired": true
       }
     ],

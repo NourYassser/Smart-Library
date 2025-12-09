@@ -150,20 +150,10 @@
         }
       }
     },
-    "/api/Books/{id}/return": {
+    "/api/Books/return": {
       "post": {
         "tags": [
           "Books"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -191,7 +181,38 @@
         }
       }
     },
-    "/api/Users": {
+    "/api/Users/add-author": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddAuthorCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddAuthorCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddAuthorCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/add-user": {
       "post": {
         "tags": [
           "Users"
@@ -215,6 +236,82 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/author/{authorId}/books": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "authorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/reviews": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/operations/{username}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -264,6 +361,16 @@
   },
   "components": {
     "schemas": {
+      "AddAuthorCommand": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AddBookCommand": {
         "type": "object",
         "properties": {
@@ -271,9 +378,9 @@
             "type": "string",
             "nullable": true
           },
-          "authorId": {
+          "authorName": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
           },
           "copies": {
             "type": "integer",
@@ -304,6 +411,32 @@
         },
         "additionalProperties": false
       },
+      "CreateReviewCommand": {
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "pin": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateUserCommand": {
         "type": "object",
         "properties": {
@@ -311,7 +444,7 @@
             "type": "string",
             "nullable": true
           },
-          "pinCode": {
+          "pin": {
             "type": "string",
             "nullable": true
           }
@@ -332,14 +465,6 @@
           "pin": {
             "type": "string",
             "nullable": true
-          },
-          "fine": {
-            "type": "number",
-            "format": "double"
-          },
-          "daysLate": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

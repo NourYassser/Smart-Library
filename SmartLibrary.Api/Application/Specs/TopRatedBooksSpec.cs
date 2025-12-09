@@ -7,10 +7,13 @@ namespace SmartLibrary.Api.Application.Specs
     {
         public TopRatedBooksSpec(int take)
         {
-            Query.Where(b => b.CopiesAvailable > 0)
-            .Include(b => b.Author)
-            .OrderByDescending(b => b.Id)
-            .Take(take);
+            Query.Where(b => b.CopiesAvailable > 0);
+
+            Query.Include(b => b.Author);
+
+            Query.OrderByDescending(b => b.Id);
+
+            Query.Take(take);
         }
     }
 }
