@@ -58,12 +58,25 @@ namespace SmartLibrary.Api.Controllers
             return Ok(new { BorrowId = result });
         }
 
+        [HttpPost("renew-book-borrowing")]
+        public async Task<IActionResult> Renew(RenewBorrowCommand cmd)
+        {
+            var result = await _mediator.Send(cmd);
+            return Ok(result);
+        }
 
         [HttpPost("return")]
         public async Task<IActionResult> Return(ReturnBookCommand cmd)
         {
             var x = await _mediator.Send(cmd);
             return Ok(x);
+        }
+
+        [HttpPost("return-batch")]
+        public async Task<IActionResult> ReturnBatch(ReturnBatchByBarcodesCommand cmd)
+        {
+            var processed = await _mediator.Send(cmd);
+            return Ok(new { Processed = processed });
         }
     }
 }

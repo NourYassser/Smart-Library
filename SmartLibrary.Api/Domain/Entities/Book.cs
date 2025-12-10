@@ -7,7 +7,7 @@
         public Author Author { get; private set; }
         public int CopiesAvailable { get; private set; }
         public decimal DailyFine { get; private set; }
-
+        public string? Barcode { get; private set; }
 
         private Book() { }
 
@@ -18,6 +18,10 @@
             AuthorId = authorId;
             CopiesAvailable = copies;
             DailyFine = dailyFine;
+        }
+        public void SetBarcode(string barcode)
+        {
+            Barcode = string.IsNullOrWhiteSpace(barcode) ? null : barcode.Trim();
         }
 
         public void Update(string title, string author, int copies)

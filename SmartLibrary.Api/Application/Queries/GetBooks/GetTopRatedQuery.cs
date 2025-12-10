@@ -23,6 +23,7 @@ namespace SmartLibrary.Api.Application.Queries.GetBooks
             return books.Select(b => new BookDto
             {
                 Id = b.Id,
+                BarCode = b.Barcode,
                 Title = b.Title,
                 AuthorName = b.Author.Name,
                 CopiesAvailable = b.CopiesAvailable

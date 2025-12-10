@@ -25,6 +25,7 @@ namespace SmartLibrary.Api.Application.Queries.GetAllBooks
             return new BookDto
             {
                 Id = book.Id,
+                BarCode = book.Barcode,
                 Title = book.Title,
                 AuthorName = book.Author.Name,
                 CopiesAvailable = book.CopiesAvailable

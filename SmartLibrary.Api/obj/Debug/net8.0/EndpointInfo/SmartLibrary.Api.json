@@ -181,6 +181,37 @@
         }
       }
     },
+    "/api/Books/return-batch": {
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReturnBatchByBarcodesCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReturnBatchByBarcodesCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReturnBatchByBarcodesCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Users/add-author": {
       "post": {
         "tags": [
@@ -396,9 +427,9 @@
       "BorrowBookCommand": {
         "type": "object",
         "properties": {
-          "bookId": {
+          "barcode": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
           },
           "username": {
             "type": "string",
@@ -451,12 +482,33 @@
         },
         "additionalProperties": false
       },
+      "ReturnBatchByBarcodesCommand": {
+        "type": "object",
+        "properties": {
+          "barcodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "pin": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ReturnBookCommand": {
         "type": "object",
         "properties": {
-          "borrowRecordId": {
+          "barcode": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
           },
           "userName": {
             "type": "string",

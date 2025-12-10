@@ -6,7 +6,7 @@ using SmartLibrary.Api.Domain.Repositories;
 namespace SmartLibrary.Api.Application.Commands.BorrowBook
 {
     public record BorrowBookCommand(
-     Guid BookId,
+     string Barcode,
      string Username,
      string Pin
     )
@@ -42,9 +42,9 @@ namespace SmartLibrary.Api.Application.Commands.BorrowBook
             if (!user.VerifyPin(request.Pin))
                 throw new UnauthorizedAccessException("Invalid username or pin.");
 
-            var book = await _bookRepo.GetByIdAsync(request.BookId);
+            var book = (await _bookRepo.ListAsync(new BookByBarcodeSpec(request.Barcode))).FirstOrDefault();
             if (book is null)
-                throw new Exception("Book not found");
+                throw new InvalidOperationException("Book not found.");
 
             var existing = await _borrowRepo.FirstOrDefaultAsync(
                 new ActiveBorrowByUserAndBookSpec(user.Id, book.Id),

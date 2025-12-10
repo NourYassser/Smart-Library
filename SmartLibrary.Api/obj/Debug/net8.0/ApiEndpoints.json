@@ -106,6 +106,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SmartLibrary.Api.Controllers.BooksController",
+    "Method": "ReturnBatch",
+    "RelativePath": "api/Books/return-batch",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "SmartLibrary.Api.Application.Commands.BorrowBook.ReturnBatchByBarcodesCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SmartLibrary.Api.Controllers.UsersController",
     "Method": "Add",
     "RelativePath": "api/Users/add-author",

@@ -2,6 +2,7 @@
 using SmartLibrary.Api.Application.Specs;
 using SmartLibrary.Api.Domain.Entities;
 using SmartLibrary.Api.Domain.Repositories;
+using System.Security.Cryptography;
 
 namespace SmartLibrary.Api.Application.Commands.AddBook
 {
@@ -40,7 +41,30 @@ namespace SmartLibrary.Api.Application.Commands.AddBook
                 await _authorRepo.AddAsync(author, ct);
             }
 
+            string barcode = null!;
+            const int maxAttempts = 10;
+            int attempts = 0;
+
+            while (attempts < maxAttempts)
+            {
+                var num = RandomNumberGenerator.GetInt32(10_000_000, 100_000_000); // 8 digits
+                var candidate = num.ToString();
+                var exists = (await _repo.ListAsync(new BookByBarcodeSpec(candidate))).FirstOrDefault();
+                if (exists == null)
+                {
+                    barcode = candidate;
+                    break;
+                }
+                attempts++;
+            }
+
+            if (barcode == null)
+            {
+                throw new InvalidOperationException("Unable to generate unique barcode for book.");
+            }
+
             var book = new Book(request.Title, author.Id, request.Copies, request.DailyFine);
+            book.SetBarcode(barcode);
             await _repo.AddAsync(book, ct);
             return book.Id;
         }

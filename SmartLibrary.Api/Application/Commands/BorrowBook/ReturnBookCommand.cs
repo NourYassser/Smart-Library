@@ -5,7 +5,7 @@ using SmartLibrary.Api.Domain.Repositories;
 
 namespace SmartLibrary.Api.Application.Commands.BorrowBook
 {
-    public record ReturnBookCommand(Guid BorrowRecordId, string UserName, string Pin) : IRequest<bool>;
+    public record ReturnBookCommand(string Barcode, string UserName, string Pin) : IRequest<bool>;
 
     public class ReturnBookHandler : IRequestHandler<ReturnBookCommand, bool>
     {
@@ -33,13 +33,14 @@ namespace SmartLibrary.Api.Application.Commands.BorrowBook
             if (user is null) return false;
             if (!user.VerifyPin(request.Pin)) return false;
 
-            var record = await _borrowRepo.GetByIdAsync(request.BorrowRecordId);
+            var book = (await _bookRepo.ListAsync(new BookByBarcodeSpec(request.Barcode))).FirstOrDefault();
+            if (book is null) return false;
+
+            var record = await _borrowRepo.FirstOrDefaultAsync(new ActiveBorrowByUserAndBookSpec(user.Id, book.Id), cancellationToken);
             if (record is null) return false;
             if (record.ReturnedAt != null) return false;
             if (record.UserId != user.Id) return false;
 
-            var book = await _bookRepo.GetByIdAsync(record.BookId);
-            if (book is null) return false;
 
             var defaultLoanDays = 14;
 
