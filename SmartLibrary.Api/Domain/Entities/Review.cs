@@ -8,6 +8,9 @@
         public string? Text { get; private set; }
         public DateTime CreatedOn { get; private set; }
 
+        public Book Book { get; private set; }
+        public AppUser User { get; private set; }
+
         private Review() { }
 
         public Review(Guid bookId, Guid userId, int rating, string? text)

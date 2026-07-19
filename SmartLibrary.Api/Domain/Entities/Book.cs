@@ -9,6 +9,8 @@
         public decimal DailyFine { get; private set; }
         public string? Barcode { get; private set; }
 
+        public ICollection<Review> Reviews { get; private set; } = new List<Review>();
+
         private Book() { }
 
 

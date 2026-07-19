@@ -26,7 +26,18 @@ namespace SmartLibrary.Api.Application.Queries.GetBooks
                 BarCode = b.Barcode,
                 Title = b.Title,
                 AuthorName = b.Author.Name,
-                CopiesAvailable = b.CopiesAvailable
+                CopiesAvailable = b.CopiesAvailable,
+                Reviews = b.Reviews.Select(r => new ReviewDto
+                {
+                    Id = r.Id,
+                    Username = r.User.Username,
+                    Rating = r.Rating,
+                    Comment = r.Text,
+                    CreatedOn = r.CreatedOn
+
+                })
+                .OrderByDescending(r => r.CreatedOn)
+                .ToList()
             }).ToList();
         }
     }

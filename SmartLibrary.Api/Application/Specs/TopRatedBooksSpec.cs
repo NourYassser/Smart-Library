@@ -11,6 +11,9 @@ namespace SmartLibrary.Api.Application.Specs
 
             Query.Include(b => b.Author);
 
+            Query.Include(b => b.Reviews)
+                 .ThenInclude(r => r.User);
+
             Query.OrderByDescending(b => b.Id);
 
             Query.Take(take);

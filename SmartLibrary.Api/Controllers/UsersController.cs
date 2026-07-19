@@ -29,7 +29,7 @@ namespace SmartLibrary.Api.Controllers
         public async Task<IActionResult> CreateUser(CreateUserCommand cmd)
         {
             var id = await _mediator.Send(cmd);
-            return Ok(id);
+            return Ok();
         }
 
         [HttpGet("author/{authorId:guid}/books")]

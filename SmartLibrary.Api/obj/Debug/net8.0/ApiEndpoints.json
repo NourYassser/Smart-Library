@@ -91,6 +91,22 @@
   },
   {
     "ContainingType": "SmartLibrary.Api.Controllers.BooksController",
+    "Method": "Renew",
+    "RelativePath": "api/Books/renew-book-borrowing",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "SmartLibrary.Api.Application.Commands.BorrowBook.RenewBorrowCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartLibrary.Api.Controllers.BooksController",
     "Method": "Return",
     "RelativePath": "api/Books/return",
     "HttpMethod": "POST",

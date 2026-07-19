@@ -135,10 +135,10 @@ C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\stati
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\SmartLib.9B01A965.Up2Date
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\SmartLibrary.Api.dll
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\refint\SmartLibrary.Api.dll
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\SmartLibrary.Api.pdb
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\SmartLibrary.Api.genruntimeconfig.cache
 C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\ref\SmartLibrary.Api.dll
+C:\Users\nour_\source\repos\SmartLibrary\SmartLibrary.Api\obj\Debug\net8.0\swae.build.ex.cache

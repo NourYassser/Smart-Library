@@ -150,6 +150,37 @@
         }
       }
     },
+    "/api/Books/renew-book-borrowing": {
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenewBorrowCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenewBorrowCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenewBorrowCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Books/return": {
       "post": {
         "tags": [
@@ -472,6 +503,24 @@
         "type": "object",
         "properties": {
           "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "pin": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RenewBorrowCommand": {
+        "type": "object",
+        "properties": {
+          "borrowRecordId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userName": {
             "type": "string",
             "nullable": true
           },

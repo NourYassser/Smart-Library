@@ -25,7 +25,7 @@ namespace SmartLibrary.Api.Application.Queries.GetAllBooks
             return new BookDto
             {
                 Id = book.Id,
-                BarCode = book.Barcode,
+                BarCode = book.Barcode ?? "No available barcode",
                 Title = book.Title,
                 AuthorName = book.Author.Name,
                 CopiesAvailable = book.CopiesAvailable
