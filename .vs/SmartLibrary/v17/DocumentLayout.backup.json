@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|c:\\users\\nour_\\source\\repos\\smartlibrary\\smartlibrary.api\\application\\queries\\getbooks\\gettopratedquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|solutionrelative:smartlibrary.api\\application\\queries\\getbooks\\gettopratedquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|c:\\users\\nour_\\source\\repos\\smartlibrary\\smartlibrary.api\\application\\queries\\getbooks\\getbooksbyauthor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|solutionrelative:smartlibrary.api\\application\\queries\\getbooks\\getbooksbyauthor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|c:\\users\\nour_\\source\\repos\\smartlibrary\\smartlibrary.api\\application\\queries\\getbooks\\getbookbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|solutionrelative:smartlibrary.api\\application\\queries\\getbooks\\getbookbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|c:\\users\\nour_\\source\\repos\\smartlibrary\\smartlibrary.api\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5AEA098-6B76-4E6D-9CF6-4197D1A807F6}|SmartLibrary.Api\\SmartLibrary.Api.csproj|solutionrelative:smartlibrary.api\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,59 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetBooksByAuthor.cs",
-              "DocumentMoniker": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBooksByAuthor.cs",
-              "RelativeDocumentMoniker": "SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBooksByAuthor.cs",
-              "ToolTip": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBooksByAuthor.cs",
-              "RelativeToolTip": "SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBooksByAuthor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:54:54.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetBookByIdQuery.cs",
-              "DocumentMoniker": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBookByIdQuery.cs",
-              "RelativeDocumentMoniker": "SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBookByIdQuery.cs",
-              "ToolTip": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBookByIdQuery.cs",
-              "RelativeToolTip": "SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetBookByIdQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:54:42.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetTopRatedQuery.cs",
-              "DocumentMoniker": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetTopRatedQuery.cs",
-              "RelativeDocumentMoniker": "SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetTopRatedQuery.cs",
-              "ToolTip": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetTopRatedQuery.cs",
-              "RelativeToolTip": "SmartLibrary.Api\\Application\\Queries\\GetBooks\\GetTopRatedQuery.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:53:38.107Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BooksController.cs",
-              "DocumentMoniker": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Controllers\\BooksController.cs",
-              "RelativeDocumentMoniker": "SmartLibrary.Api\\Controllers\\BooksController.cs",
-              "ToolTip": "C:\\Users\\nour_\\source\\repos\\SmartLibrary\\SmartLibrary.Api\\Controllers\\BooksController.cs",
-              "RelativeToolTip": "SmartLibrary.Api\\Controllers\\BooksController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAYwDwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:47:47.991Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             }
           ]
         }

@@ -1,0 +1,12 @@
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\bin\Debug\net8.0\Library.BuildingBlocks.deps.json
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\bin\Debug\net8.0\Library.BuildingBlocks.dll
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\bin\Debug\net8.0\Library.BuildingBlocks.pdb
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\Library.BuildingBlocks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\Library.BuildingBlocks.AssemblyInfoInputs.cache
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\Library.BuildingBlocks.AssemblyInfo.cs
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\Library.BuildingBlocks.csproj.CoreCompileInputs.cache
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\Library.BuildingBlocks.sourcelink.json
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\Library.BuildingBlocks.dll
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\refint\Library.BuildingBlocks.dll
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\Library.BuildingBlocks.pdb
+C:\Users\nour_\source\repos\SmartLibrary\Library.BuildingBlocks\obj\Debug\net8.0\ref\Library.BuildingBlocks.dll
