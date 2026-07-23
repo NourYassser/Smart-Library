@@ -26,8 +26,8 @@ namespace SmartLibrary.Api.Controllers
         [HttpPost("add-user")]
         public async Task<IActionResult> CreateUser(CreateUserCommand cmd)
         {
-            var id = await _mediator.Send(cmd);
-            return Ok();
+            var res = await _mediator.Send(cmd);
+            return Ok(res);
         }
 
         /*[HttpGet("author/{authorId:guid}/books")]
@@ -37,7 +37,7 @@ namespace SmartLibrary.Api.Controllers
             return Ok(books);
         }*/
 
-        [HttpGet("user/{username}")]
+        [HttpGet("{username}")]
         public async Task<IActionResult> GetUser(string username)
         {
             var books = await _mediator.Send(new GetUserByUserNameQuery(username));

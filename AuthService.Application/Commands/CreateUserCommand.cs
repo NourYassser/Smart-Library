@@ -37,6 +37,9 @@ namespace AuthService.Application.Commands
 
             var user = new AppUser(request.Username, request.Pin);
             await _context.Users.AddAsync(user, cancellationToken);
+
+            await _context.SaveChangesAsync(cancellationToken);
+
             return new OperatingResult()
             {
                 IsSuccess = true,
