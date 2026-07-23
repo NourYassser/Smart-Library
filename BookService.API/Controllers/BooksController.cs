@@ -17,12 +17,12 @@ namespace BookService.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddBookCommand cmd)
         {
-            var id = await _mediator.Send(cmd);
-            return Ok(id);
+            var res = await _mediator.Send(cmd);
+            return Ok(res);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(string id)
         {
             var dto = await _mediator.Send(new GetBookByIdQuery(id));
             if (dto == null) return NotFound();

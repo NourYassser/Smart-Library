@@ -4,9 +4,9 @@ namespace BookService.Application.Specs
 {
     public class GetByIdSpec : Specification<Domain.Entities.Book>
     {
-        public GetByIdSpec(Guid id)
+        public GetByIdSpec(string id)
         {
-            Query.Where(b => b.Id == id)
+            Query.Where(b => b.Barcode == id)
             .Include(b => b.Author)
             .AsNoTracking();
         }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookService.Application.Queries
 {
-    public record GetBookByIdQuery(Guid Id) : IRequest<DTOs.BookDto>;
+    public record GetBookByIdQuery(string Id) : IRequest<DTOs.BookDto>;
 
     public class GetBookByIdHandler : IRequestHandler<GetBookByIdQuery, DTOs.BookDto>
     {

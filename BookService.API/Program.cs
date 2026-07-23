@@ -1,3 +1,4 @@
+using BookService.Application.DependencyInjection;
 using BookService.Application.Interface;
 using BookService.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,8 @@ builder.Services.AddScoped<IBookDbContext>(sp =>
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+builder.Services.AddApplication();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
