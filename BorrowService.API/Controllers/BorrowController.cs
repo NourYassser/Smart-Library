@@ -16,7 +16,7 @@ namespace BorrowService.API.Controllers
         public async Task<IActionResult> BorrowBook(BorrowBookCommand cmd)
         {
             var result = await _mediator.Send(cmd);
-            return Ok(new { BorrowId = result });
+            return Ok(result);
         }
 
         [HttpPost("renew-book-borrowing")]

@@ -28,6 +28,10 @@ namespace BorrowService.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("BarCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("BookId")
                         .HasColumnType("uniqueidentifier");
 
@@ -54,7 +58,7 @@ namespace BorrowService.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BorrowRecords");
+                    b.ToTable("Borrow");
                 });
 #pragma warning restore 612, 618
         }

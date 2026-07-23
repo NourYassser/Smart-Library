@@ -1,4 +1,4 @@
-﻿using BookService.Application.Interface;
+﻿using BorrowService.Application.Interface;
 using BorrowService.Domain;
 using Microsoft.EntityFrameworkCore;
 

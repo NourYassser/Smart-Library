@@ -140,3 +140,13 @@ C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\obj\Debug\net8.0\swae
 C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\obj\Debug\net8.0\BorrowService.API.dll
 C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\obj\Debug\net8.0\refint\BorrowService.API.dll
 C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\obj\Debug\net8.0\BorrowService.API.pdb
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\bin\Debug\net8.0\appsettings.json
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\bin\Debug\net8.0\BorrowService.API.staticwebassets.endpoints.json
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\bin\Debug\net8.0\BorrowService.API.exe
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\bin\Debug\net8.0\BorrowService.API.deps.json
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\bin\Debug\net8.0\BorrowService.API.runtimeconfig.json
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\bin\Debug\net8.0\BorrowService.API.pdb
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\obj\Debug\net8.0\BorrowSe.C96DD713.Up2Date
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\obj\Debug\net8.0\BorrowService.API.genruntimeconfig.cache
+C:\Users\nour_\source\repos\SmartLibrary\BorrowService.API\obj\Debug\net8.0\ref\BorrowService.API.dll

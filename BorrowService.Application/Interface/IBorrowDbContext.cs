@@ -1,7 +1,7 @@
 ﻿using BorrowService.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookService.Application.Interface
+namespace BorrowService.Application.Interface
 {
     public interface IBorrowDbContext
     {

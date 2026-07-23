@@ -1,5 +1,4 @@
 ﻿using Ardalis.Specification.EntityFrameworkCore;
-using BookService.Application.Interface;
 using BorrowService.Application.Interface;
 using BorrowService.Application.Specs;
 using Library.BuildingBlocks.DTOs;
@@ -9,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace BorrowService.Application.Commands
 {
-    public record ReturnBatchByBarcodesCommand(List<Guid> Barcodes, string UserName, string Pin) : IRequest<OperatingResult>;
+    public record ReturnBatchByBarcodesCommand(List<string> Barcodes, string UserName, string Pin) : IRequest<OperatingResult>;
 
     public class ReturnBatchByBarcodesHandler : IRequestHandler<ReturnBatchByBarcodesCommand, OperatingResult>
     {

@@ -1,5 +1,4 @@
 ﻿using Ardalis.Specification.EntityFrameworkCore;
-using BookService.Application.Interface;
 using BorrowService.Application.Interface;
 using BorrowService.Application.Specs;
 using BorrowService.Domain;
@@ -10,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BorrowService.Application.Commands
 {
     public record BorrowBookCommand(
-     Guid Id,
+     string Id,
      string Username,
      string Pin
     )
@@ -41,10 +40,14 @@ namespace BorrowService.Application.Commands
         );
 
             if (user is null)
-                throw new Exception("Invalid username or pin");
+                return new OperatingResult
+                {
+                    IsSuccess = false,
+                    Message = "User not found."
+                };
 
-            /* if (!user.VerifyPin(request.Pin))
-                 throw new UnauthorizedAccessException("Invalid username or pin.");*/
+            /*if (!user.VerifyPin(request.Pin))
+                throw new UnauthorizedAccessException("Invalid username or pin.");*/
 
             var book = (await _bookClient.GetBookAsync(request.Id, cancellationToken));
             if (book is null)
@@ -67,7 +70,7 @@ namespace BorrowService.Application.Commands
 
             await _bookRepo.UpdateAsync(book, cancellationToken);*/
 
-            var borrowRecord = new BorrowRecord(book.Id, user.Id);
+            var borrowRecord = new BorrowRecord(book.Id, user.Id, request.Id);
 
             var added = await _context.Borrow.AddAsync(borrowRecord, cancellationToken);
 

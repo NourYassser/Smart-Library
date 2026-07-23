@@ -1,5 +1,4 @@
 ﻿using Ardalis.Specification.EntityFrameworkCore;
-using BookService.Application.Interface;
 using BorrowService.Application.DTOs;
 using BorrowService.Application.Interface;
 using BorrowService.Application.Specs;
@@ -44,11 +43,12 @@ namespace BorrowService.Application.Queries
 
             foreach (var borrow in borrowings)
             {
-                var book = await _bookClient.GetBookAsync(borrow.BookId, cancellationToken);
+                var book = await _bookClient.GetBookAsync(borrow.BarCode, cancellationToken);
 
                 borrowDtos.Add(new BorrowingDto(
                     borrow.Id,
                     borrow.BookId,
+                    borrow.BarCode,
                     book?.Title ?? "Unknown",
                     borrow.BorrowedAt,
                     borrow.ReturnedAt));

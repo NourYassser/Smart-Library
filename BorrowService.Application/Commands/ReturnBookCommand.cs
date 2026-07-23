@@ -1,5 +1,4 @@
 ﻿using Ardalis.Specification.EntityFrameworkCore;
-using BookService.Application.Interface;
 using BorrowService.Application.Interface;
 using BorrowService.Application.Specs;
 using Library.BuildingBlocks.DTOs;
@@ -8,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BorrowService.Application.Commands
 {
-    public record ReturnBookCommand(Guid Barcode, string UserName, string Pin) : IRequest<OperatingResult>;
+    public record ReturnBookCommand(string Barcode, string UserName, string Pin) : IRequest<OperatingResult>;
 
     public class ReturnBookHandler : IRequestHandler<ReturnBookCommand, OperatingResult>
     {

@@ -1,5 +1,4 @@
-﻿using BookService.Application.Interface;
-using BorrowService.Application.Interface;
+﻿using BorrowService.Application.Interface;
 using Library.BuildingBlocks.DTOs;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
