@@ -2,12 +2,16 @@ using BorrowService.Application.DependencyInjection;
 using BorrowService.Application.Interface;
 using BorrowService.Infrastructure;
 using BorrowService.Infrastructure.Service;
+using Library.BuildingBlock.RabbitMQ.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
 // Add services to the container.
+
+builder.Services.AddRabbitMq(builder.Configuration);
+
 // DbContext
 builder.Services.AddDbContext<BorrowDbContext>(opts =>
 opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

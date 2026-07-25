@@ -12,6 +12,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\BorrowService.Infrastructure\BorrowService.Infrastructure.csproj" />
 		<ProjectReference Include="..\BorrowService.Application\BorrowService.Application.csproj" />
+		<ProjectReference Include="..\Library.BuildingBlock.RabbitMQ\Library.BuildingBlock.RabbitMQ.csproj" />
+		
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
